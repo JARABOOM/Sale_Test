@@ -1,6 +1,0 @@
-- name: Debugging
-  run: |
-    Get-Location
-    Get-ChildItem -Force
-  shell: pwsh
-
