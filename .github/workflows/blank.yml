@@ -15,6 +15,6 @@ jobs:
 
       - name: Use files from D:\Desktop\sale
         run: |
-          cp -r path/to/repo/D:/Desktop/sale/* .
+          cp -r ${{ github.workspace }}/D:/Desktop/sale/* .
           
       # ต่อไปคือคำสั่งที่ให้ GitHub Actions ทำต่อไป
