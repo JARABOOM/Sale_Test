@@ -1,16 +1,20 @@
-name: Pull File from Local
+name: Your Workflow Name
 
 on:
-  schedule:
-    - cron: '*/1 * * * *'  # รันทุก 1 นาที
+  push:
+    branches:
+      - main
 
 jobs:
-  pull-file:
+  your_job_name:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Copy File
-      run: cp D:/Desktop/sale/sale.jpeg $GITHUB_WORKSPACE
+      - name: Use files from D:\Desktop\sale
+        run: |
+          cp -r path/to/repo/D:/Desktop/sale/* .
+          
+      # ต่อไปคือคำสั่งที่ให้ GitHub Actions ทำต่อไป
