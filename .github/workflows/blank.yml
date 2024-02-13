@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Copy file from D:\Desktop\sale\sale.jpeg
-      run: cp D:/Desktop/sale/sale.jpeg ${{ github.workspace }}/sale.jpeg
+      run: cp D:\\Desktop\\sale\\sale.jpeg ${{ github.workspace }}/sale.jpeg
 
     - name: Commit and push changes
       run: |
