@@ -1,21 +1,6 @@
-name: upload
+- name: Debugging
+  run: |
+    Get-Location
+    Get-ChildItem -Force
+  shell: pwsh
 
-on:
-  schedule:
-    - cron: '*/1 * * * *' # ทุก 1 นาที
-
-jobs:
-  upload:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Upload file
-        run: |
-          cp -r D:/Desktop/sale/* $GITHUB_WORKSPACE
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Auto-upload files"
-          git push
