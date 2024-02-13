@@ -6,19 +6,23 @@ on:
 
 jobs:
   pullAndUpload:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Copy file from D:\Desktop\sale\sale.jpeg
-      run: cp D:\\Desktop\\sale\\sale.jpeg ${{ github.workspace }}/sale.jpeg
+    - name: Copy files from D:\Desktop\sale\
+      run: |
+        robocopy D:\Desktop\sale\ ${{ github.workspace }} /E
 
-    - name: Commit and push changes
+    - name: Configure Git
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@users.noreply.github.com"
-        git add sale.jpeg
-        git commit -m "Update sale.jpeg"
+
+    - name: Commit and push changes
+      run: |
+        git add .
+        git commit -m "Auto-upload files"
         git push
